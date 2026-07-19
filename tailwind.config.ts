@@ -51,12 +51,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        chauffy: {
-          orange: "hsl(var(--chauffy-orange))",
-          dark: "hsl(var(--chauffy-dark))",
-          cream: "hsl(var(--chauffy-cream))",
-          gray: "hsl(var(--chauffy-gray))",
-          light: "hsl(var(--chauffy-light))",
+        suivit: {
+          teal: '#2DD4BF',
+          coral: '#FF6B4A',
+          navy: '#0B1220',
+          'navy-mid': '#111B30',
+          'navy-light': '#182642',
+          muted: '#5B5D72',
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -92,8 +93,8 @@ export default {
           "50%": { transform: "translateY(-10px)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(38 100% 55% / 0.3)" },
-          "50%": { boxShadow: "0 0 40px hsl(38 100% 55% / 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 20px rgba(45, 212, 191, 0.3)" },
+          "50%": { boxShadow: "0 0 40px rgba(45, 212, 191, 0.6)" },
         },
       },
       animation: {

@@ -2,11 +2,19 @@ import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MapPin, Shield, Car, Star, ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  ClipboardList,
+  TrendingUp,
+  BarChart3,
+  FileText,
+  ArrowRight,
+  CheckCircle2,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { APP_URL } from "@/lib/config";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,39 +35,43 @@ export function HowItWorks() {
   const steps: Step[] = [
     {
       id: 1,
-      title: "Suivi en temps réel",
-      description: "Suivez votre chauffeur en direct sur la carte.",
-      icon: <MapPin className="h-5 w-5" />,
-      color: "text-blue-600",
-      bgColor: "bg-blue-50",
-      iconBg: "bg-gradient-to-br from-blue-500 to-cyan-500",
+      title: "Configurez votre projet",
+      description:
+        "Définissez vos activités, indicateurs et équipes en quelques clics.",
+      icon: <ClipboardList className="h-5 w-5" />,
+      color: "text-teal-600",
+      bgColor: "bg-teal-50",
+      iconBg: "bg-gradient-to-br from-teal-500 to-cyan-500",
     },
     {
       id: 2,
-      title: "Paiement sécurisé",
-      description: "Transactions rapides et cryptées.",
-      icon: <Shield className="h-5 w-5" />,
-      color: "text-green-600",
-      bgColor: "bg-green-50",
-      iconBg: "bg-gradient-to-br from-emerald-500 to-green-500",
+      title: "Suivez en temps réel",
+      description:
+        "Renseignez l'avancement, les décaissements et les difficultés au quotidien.",
+      icon: <TrendingUp className="h-5 w-5" />,
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
+      iconBg: "bg-gradient-to-br from-blue-500 to-indigo-500",
     },
     {
       id: 3,
-      title: "Choix Chauffeur",
-      description: "Sélectionnez le chauffeur idéal.",
-      icon: <Car className="h-5 w-5" />,
-      color: "text-purple-600",
-      bgColor: "bg-purple-50",
-      iconBg: "bg-gradient-to-br from-purple-500 to-pink-500",
+      title: "Analysez les performances",
+      description:
+        "Consultez les tableaux de bord, statistiques et indicateurs de performance.",
+      icon: <BarChart3 className="h-5 w-5" />,
+      color: "text-violet-600",
+      bgColor: "bg-violet-50",
+      iconBg: "bg-gradient-to-br from-violet-500 to-purple-500",
     },
     {
       id: 4,
-      title: "Avis clients",
-      description: "Notez et consultez les chauffeurs.",
-      icon: <Star className="h-5 w-5" />,
-      color: "text-orange-600",
+      title: "Générez des rapports",
+      description:
+        "Éditez vos états de suivi, exportez et partagez en un clic.",
+      icon: <FileText className="h-5 w-5" />,
+      color: "text-[#FF6B4A]",
       bgColor: "bg-orange-50",
-      iconBg: "bg-gradient-to-br from-orange-500 to-amber-500",
+      iconBg: "bg-gradient-to-br from-[#FF6B4A] to-rose-500",
     },
   ];
 
@@ -71,10 +83,10 @@ export function HowItWorks() {
       // Désactiver le parallax sur mobile
       if (window.innerWidth < 1024) return;
 
-      // 📱 PHONE
-      gsap.to(".phone-parallax", {
+      // 📊 DASHBOARD MOCKUP
+      gsap.to(".dashboard-parallax", {
         y: -25,
-        scale: 1.05,
+        scale: 1.03,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -141,55 +153,51 @@ export function HowItWorks() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-gradient-to-b from-white via-orange-50/20 to-white pt-24 lg:pt-20 pb-16 lg:pb-20"
+      className="relative overflow-hidden bg-gradient-to-b from-white via-teal-50/20 to-white pt-24 lg:pt-20 pb-16 lg:pb-20"
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
 
         {/* HEADER */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-10 lg:mb-16"
         >
-          <Badge className="mb-4 px-4 py-1.5 bg-orange-100 text-orange-700 border-0 text-xs">
-            Simple et rapide
+          <Badge className="mb-4 px-4 py-1.5 bg-teal-100 text-teal-700 border-0 text-xs">
+            Simple &amp; Efficace
           </Badge>
-          
+
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 px-2">
             Comment fonctionne{" "}
-            <span className="text-orange-500 relative">
-              Apex
+            <span className="text-[#2DD4BF] relative">
+              Suivit+
               <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <motion.path
                   d="M0,5 Q50,10 100,5"
                   fill="none"
-                  stroke="#f97316"
+                  stroke="#2DD4BF"
                   strokeWidth="3"
                   initial={{ pathLength: 0 }}
                   animate={isInView ? { pathLength: 1 } : {}}
                   transition={{ delay: 0.8, duration: 0.8 }}
                 />
               </svg>
-            </span>
+            </span>{" "}?
           </h2>
           <p className="text-gray-600 mt-4 text-sm sm:text-base px-4">
-            Une expérience simple, rapide et sécurisée en 4 étapes.
+            En quelques étapes simples, structurez et pilotez vos projets de A à Z.
           </p>
         </motion.div>
 
-        {/* DESKTOP LAYOUT - Inchangé */}
+        {/* DESKTOP LAYOUT */}
         <div className="hidden lg:flex relative min-h-[700px] items-center justify-center">
 
-          {/* 📱 PHONE CENTER */}
-          <div className="phone-parallax relative z-20">
+          {/* 📊 DASHBOARD MOCKUP CENTER */}
+          <div className="dashboard-parallax relative z-20">
             <div className="relative">
-              <div className="absolute inset-0 bg-orange-400/20 blur-3xl rounded-full scale-110" />
-              <img
-                src="/phone-mockup-center.png"
-                className="w-[440px] drop-shadow-2xl relative"
-                alt="app"
-              />
+              <div className="absolute inset-0 bg-teal-400/20 blur-3xl rounded-full scale-110" />
+              <DashboardMockup />
             </div>
           </div>
 
@@ -215,35 +223,30 @@ export function HowItWorks() {
 
         </div>
 
-        {/* MOBILE LAYOUT - Amélioré */}
+        {/* MOBILE LAYOUT */}
         <div className="lg:hidden">
-          {/* Timeline avec téléphone */}
           <div className="relative mb-10">
             {/* Ligne de connexion verticale */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-300 via-orange-200 to-orange-100" />
-            
-            {/* Téléphone centré */}
-            <motion.div 
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-300 via-teal-200 to-teal-100" />
+
+            {/* Dashboard centré */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="flex justify-center mb-8 relative z-10"
             >
-              <div className="relative">
-                <div className="absolute inset-0 bg-orange-400/20 blur-2xl rounded-full" />
-                <img
-                  src="/phone-mockup-center.png"
-                  className="w-48 xs:w-56 sm:w-64 drop-shadow-xl relative"
-                  alt="app"
-                />
-                
+              <div className="relative scale-75 origin-top">
+                <div className="absolute inset-0 bg-teal-400/20 blur-2xl rounded-full" />
+                <DashboardMockup />
+
                 {/* Badge flottant */}
                 <motion.div
                   animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 3, repeat: Infinity }}
                   className="absolute -top-3 -right-3 bg-white rounded-full shadow-lg px-3 py-1.5 flex items-center gap-1.5"
                 >
-                  <CheckCircle2 className="h-3.5 w-3.5 text-green-500" />
+                  <CheckCircle2 className="h-3.5 w-3.5 text-teal-500" />
                   <span className="text-xs font-semibold text-gray-700">4 étapes</span>
                 </motion.div>
               </div>
@@ -258,13 +261,15 @@ export function HowItWorks() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+                  className={`flex ${index % 2 === 0 ? "justify-start" : "justify-end"}`}
                 >
-                  <div className={`w-[85%] ${index % 2 === 0 ? 'pr-4' : 'pl-4'}`}>
+                  <div className={`w-[85%] ${index % 2 === 0 ? "pr-4" : "pl-4"}`}>
                     {/* Indicateur d'étape */}
                     <div className="flex items-center gap-2 mb-2">
                       <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-                        index % 2 === 0 ? 'bg-orange-100 text-orange-700' : 'bg-blue-100 text-blue-700'
+                        index % 2 === 0
+                          ? "bg-teal-100 text-teal-700"
+                          : "bg-blue-100 text-blue-700"
                       }`}>
                         Étape {step.id}/4
                       </span>
@@ -278,24 +283,105 @@ export function HowItWorks() {
         </div>
 
         {/* CTA */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mt-8 lg:mt-5 text-center"
         >
-          <Button className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base rounded-xl shadow-lg shadow-orange-500/20">
-            Commencer maintenant
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
-          
+          <a href={APP_URL} target="_blank" rel="noopener noreferrer">
+            <Button className="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base rounded-xl shadow-lg shadow-teal-500/20">
+              Commencer maintenant
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </a>
+
           <p className="text-xs text-gray-500 mt-3">
-            Pas de carte de crédit requise
+            Accès simple et sécurisé
           </p>
         </motion.div>
 
       </div>
     </section>
+  );
+}
+
+/* ================= DASHBOARD MOCKUP ================= */
+function DashboardMockup() {
+  const bars = [
+    { label: "Activités", value: 78, color: "bg-teal-500" },
+    { label: "Budget", value: 62, color: "bg-indigo-500" },
+    { label: "Indicateurs", value: 91, color: "bg-violet-500" },
+    { label: "Rapports", value: 45, color: "bg-[#FF6B4A]" },
+  ];
+
+  return (
+    <div className="w-[380px] rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-[#111B30] relative">
+      {/* Header */}
+      <div className="bg-[#0B1220] px-4 py-3 flex items-center justify-between border-b border-white/10">
+        <div className="flex items-center gap-2">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#FF6B4A]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+          <div className="w-2.5 h-2.5 rounded-full bg-teal-400" />
+        </div>
+        <span className="text-white/60 text-xs font-mono">Suivit+ · Tableau de bord</span>
+        <div className="w-14" />
+      </div>
+
+      {/* KPI row */}
+      <div className="grid grid-cols-3 gap-2 p-4">
+        {[
+          { label: "Projets actifs", val: "12", color: "text-teal-400" },
+          { label: "Taux avancement", val: "74%", color: "text-indigo-400" },
+          { label: "Rapports édités", val: "38", color: "text-[#FF6B4A]" },
+        ].map((kpi, i) => (
+          <div key={i} className="bg-white/5 rounded-xl p-3 text-center border border-white/10">
+            <p className={`text-lg font-bold ${kpi.color}`}>{kpi.val}</p>
+            <p className="text-white/40 text-[10px] mt-0.5 leading-tight">{kpi.label}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Progress bars */}
+      <div className="px-4 pb-4 space-y-3">
+        <p className="text-white/50 text-xs uppercase tracking-wider mb-2">Performance globale</p>
+        {bars.map((bar, i) => (
+          <div key={i}>
+            <div className="flex justify-between text-[11px] mb-1">
+              <span className="text-white/60">{bar.label}</span>
+              <span className="text-white/80 font-semibold">{bar.value}%</span>
+            </div>
+            <div className="h-2 rounded-full bg-white/10 overflow-hidden">
+              <motion.div
+                className={`h-full rounded-full ${bar.color}`}
+                initial={{ width: 0 }}
+                whileInView={{ width: `${bar.value}%` }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 + i * 0.1, duration: 0.8, ease: "easeOut" }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Footer chart hint */}
+      <div className="px-4 pb-4">
+        <div className="bg-white/5 rounded-xl p-3 border border-white/10 flex items-end gap-1 h-16">
+          {[40, 65, 50, 80, 70, 90, 75].map((h, i) => (
+            <motion.div
+              key={i}
+              className="flex-1 rounded-sm bg-gradient-to-t from-teal-600 to-teal-400"
+              style={{ height: `${h}%` }}
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 + i * 0.05, duration: 0.4 }}
+            />
+          ))}
+        </div>
+        <p className="text-white/30 text-[10px] mt-1.5 text-center">Avancement · 7 derniers jours</p>
+      </div>
+    </div>
   );
 }
 
@@ -343,7 +429,7 @@ function StepCardMobile({ step }: { step: Step }) {
               {step.icon}
             </div>
           </div>
-          
+
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
               <h3 className="font-bold text-gray-900 text-sm">
@@ -353,20 +439,20 @@ function StepCardMobile({ step }: { step: Step }) {
                 #{step.id}
               </span>
             </div>
-            
+
             <p className="text-xs text-gray-600 leading-relaxed">
               {step.description}
             </p>
-            
+
             {/* Mini indicateur de progression */}
             <div className="mt-2 flex items-center gap-1">
               {[...Array(4)].map((_, i) => (
-                <div 
-                  key={i} 
+                <div
+                  key={i}
                   className={cn(
                     "h-1 rounded-full transition-all",
-                    i < step.id 
-                      ? "w-3 bg-orange-500" 
+                    i < step.id
+                      ? "w-3 bg-teal-500"
                       : "w-2 bg-gray-200"
                   )}
                 />

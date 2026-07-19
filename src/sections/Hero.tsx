@@ -2,51 +2,156 @@ import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, Play, CreditCard, Users, Car, Search } from "lucide-react";
+import { ArrowRight, Users, Activity, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
+import { APP_URL } from "@/lib/config";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Types
-interface Transaction {
-  id: string;
-  driver: string;
-  avatar: string;
-  time: string;
-  date: string;
-  amount: number;
-  status: "completed" | "pending";
+/* ─── Mini composant : barre de progression ──────────────────── */
+function ProgressBar({
+  label,
+  value,
+  color = "bg-teal-400",
+}: {
+  label: string;
+  value: number;
+  color?: string;
+}) {
+  return (
+    <div className="space-y-1">
+      <div className="flex justify-between text-[11px] text-slate-300">
+        <span>{label}</span>
+        <span>{value}%</span>
+      </div>
+      <div className="h-1.5 rounded-full bg-white/10">
+        <div
+          className={cn("h-full rounded-full", color)}
+          style={{ width: `${value}%` }}
+        />
+      </div>
+    </div>
+  );
 }
 
-interface Driver {
-  id: string;
-  name: string;
-  avatar: string;
-  rating: number;
-  vehicle: string;
+/* ─── Mockup Dashboard ───────────────────────────────────────── */
+function DashboardMockup() {
+  return (
+    <div className="relative w-full max-w-md mx-auto select-none phone-mockup">
+      {/* Cadre principal */}
+      <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#111B30]">
+        {/* Barre de titre */}
+        <div className="flex items-center justify-between px-4 py-3 bg-[#0B1220] border-b border-white/10">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+            <span className="text-xs font-semibold text-white/80">
+              Suivit+ — Tableau de bord
+            </span>
+          </div>
+          <div className="flex gap-1">
+            <div className="w-2 h-2 rounded-full bg-red-400/60" />
+            <div className="w-2 h-2 rounded-full bg-amber-400/60" />
+            <div className="w-2 h-2 rounded-full bg-green-400/60" />
+          </div>
+        </div>
+
+        {/* Contenu dashboard */}
+        <div className="p-4 space-y-4">
+          {/* KPI row */}
+          <div className="grid grid-cols-3 gap-2">
+            {[
+              { label: "Projets actifs", value: "12", delta: "+2" },
+              { label: "Activités", value: "347", delta: "+18" },
+              { label: "Décaissements", value: "94%", delta: "✓" },
+            ].map((kpi) => (
+              <div
+                key={kpi.label}
+                className="rounded-xl bg-white/5 border border-white/10 p-2.5 text-center"
+              >
+                <p className="text-lg font-bold text-teal-300">{kpi.value}</p>
+                <p className="text-[9px] text-slate-400 leading-tight">
+                  {kpi.label}
+                </p>
+                <p className="text-[9px] text-teal-400 font-semibold">
+                  {kpi.delta}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Taux de complétion */}
+          <div className="rounded-xl bg-white/5 border border-white/10 p-3 space-y-2.5">
+            <p className="text-[11px] font-semibold text-white/70 uppercase tracking-wider">
+              Avancement des projets
+            </p>
+            <ProgressBar label="Projet AGJB" value={78} color="bg-teal-400" />
+            <ProgressBar
+              label="Projet PNUD-2025"
+              value={55}
+              color="bg-cyan-400"
+            />
+            <ProgressBar
+              label="Projet BID-Infra"
+              value={91}
+              color="bg-emerald-400"
+            />
+          </div>
+
+          {/* Dernières activités */}
+          <div className="rounded-xl bg-white/5 border border-white/10 p-3 space-y-2">
+            <p className="text-[11px] font-semibold text-white/70 uppercase tracking-wider">
+              Activités récentes
+            </p>
+            {[
+              { name: "Formation agents terrain", status: "Complété", ok: true },
+              {
+                name: "Rapport mensuel Juin",
+                status: "En cours",
+                ok: false,
+              },
+              {
+                name: "Réunion comité pilotage",
+                status: "Planifié",
+                ok: false,
+              },
+            ].map((a) => (
+              <div
+                key={a.name}
+                className="flex items-center justify-between text-[10px]"
+              >
+                <span className="text-slate-300 truncate max-w-[60%]">
+                  {a.name}
+                </span>
+                <span
+                  className={cn(
+                    "px-1.5 py-0.5 rounded-full font-semibold",
+                    a.ok
+                      ? "bg-teal-500/20 text-teal-300"
+                      : "bg-white/10 text-slate-400"
+                  )}
+                >
+                  {a.status}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Glow derrière le mockup */}
+      <div className="absolute -inset-6 -z-10 bg-teal-500/15 blur-3xl rounded-full" />
+    </div>
+  );
 }
 
+/* ─── Section Hero ───────────────────────────────────────────── */
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
-
-  const recentDrivers: Driver[] = [
-    { id: "1", name: "Thomas Der", avatar: "/avatars/thomas.jpg", rating: 4.8, vehicle: "Toyota Camry" },
-    { id: "2", name: "Marie K.", avatar: "/avatars/marie.jpg", rating: 4.9, vehicle: "Peugeot 308" },
-    { id: "3", name: "Jean P.", avatar: "/avatars/jean.jpg", rating: 4.7, vehicle: "Renault Clio" },
-  ];
-
-  const recentTransactions: Transaction[] = [
-    { id: "1", driver: "Thomas Der", avatar: "/avatars/thomas.jpg", time: "08:37", date: "10 Avr", amount: 24.50, status: "completed" },
-    { id: "2", driver: "Sophie M.", avatar: "/avatars/sophie.jpg", time: "14:15", date: "09 Avr", amount: 18.90, status: "completed" },
-    { id: "3", driver: "Lucas B.", avatar: "/avatars/lucas.jpg", time: "09:20", date: "09 Avr", amount: 32.00, status: "completed" },
-  ];
 
   useEffect(() => {
     if (!statsRef.current || !sectionRef.current) return;
@@ -66,7 +171,7 @@ export function HeroSection() {
         ease: "power2.out",
       });
 
-      // PHONE PARALLAX - Desktop only
+      // DASHBOARD PARALLAX - Desktop only
       if (window.innerWidth >= 1024) {
         gsap.to(".phone-mockup", {
           y: -15,
@@ -114,18 +219,21 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-gradient-to-br from-orange-50/50 via-white to-blue-50/30">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-gradient-to-br from-[#0B1220] via-[#111B30] to-[#0B1220]"
+    >
       {/* Mobile top padding */}
       <div className="pt-20 lg:pt-0" />
-      
+
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
-          {/* Left Content */}
+          {/* ── Left Content ── */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="space-y-6 sm:space-y-8"
+            className="space-y-6 sm:space-y-8 lg:pb-16"
           >
             {/* Badge */}
             <motion.div
@@ -134,8 +242,11 @@ export function HeroSection() {
               transition={{ delay: 0.1, duration: 0.5 }}
               className="flex justify-center lg:justify-start"
             >
-              <Badge variant="secondary" className="bg-orange-100 text-orange-700 hover:bg-orange-100 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm border-0">
-                 Plus de 5000+ chauffeurs vérifiés
+              <Badge
+                variant="secondary"
+                className="bg-teal-500/15 text-teal-300 hover:bg-teal-500/20 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm border border-teal-500/30"
+              >
+                🚀 Plateforme de suivi & évaluation de projets
               </Badge>
             </motion.div>
 
@@ -144,25 +255,14 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-gray-900 leading-[1.15] text-center lg:text-left px-2 sm:px-0"
+              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-white leading-[1.15] text-center lg:text-left px-2 sm:px-0"
             >
-              Connectez-vous avec des{" "}
-              <span className="text-orange-500 relative whitespace-nowrap">
-                chauffeurs
-                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <motion.path
-                    d="M0,5 Q50,10 100,5"
-                    fill="none"
-                    stroke="#f97316"
-                    strokeWidth="3"
-                    initial={{ pathLength: 0 }}
-                    animate={isInView ? { pathLength: 1 } : {}}
-                    transition={{ delay: 0.8, duration: 0.8 }}
-                  />
-                </svg>
-              </span>{" "}
-              <br className="hidden sm:block" />
-              de confiance en quelques clics
+              <span className="block bg-gradient-to-r from-teal-300 via-cyan-300 to-teal-400 bg-clip-text text-transparent">
+                Pilotez vos projets.
+              </span>
+              <span className="block bg-gradient-to-r from-teal-300 via-cyan-300 to-teal-400 bg-clip-text text-transparent mt-1">
+                Mesurez vos impacts.
+              </span>
             </motion.h1>
 
             {/* Description */}
@@ -170,10 +270,10 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0 text-center lg:text-left px-2 sm:px-0"
+              className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 text-center lg:text-left px-2 sm:px-0"
             >
-              Trouvez un chauffeur disponible instantanément pour vos trajets quotidiens,
-              vos rendez-vous ou vos déplacements professionnels. Simple, rapide et sécurisé.
+              Suivit+ est la plateforme tout-en-un de suivi et évaluation pour
+              les organisations qui veulent des résultats mesurables.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -183,155 +283,140 @@ export function HeroSection() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start"
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white font-semibold shadow-lg shadow-orange-200">
-                  Télécharger l'app
-                  <ArrowRight className="ml-2 h-4 w-4" />
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full sm:w-auto"
+              >
+                <Button
+                  size="lg"
+                  asChild
+                  className="w-full sm:w-auto bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-400 hover:to-cyan-400 text-white font-semibold shadow-lg shadow-teal-500/30 border-0"
+                >
+                  <a href={APP_URL} target="_blank" rel="noopener noreferrer">
+                    Accéder à l'app
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
                 </Button>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold">
-                  <Play className="mr-2 h-4 w-4 fill-orange-500 text-orange-500" />
-                  Voir la démo
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full sm:w-auto"
+              >
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10 font-semibold bg-transparent"
+                >
+                  <a href="/modules">Découvrir les modules</a>
                 </Button>
               </motion.div>
             </motion.div>
 
             {/* Stats */}
-            <div ref={statsRef} className="pt-6 sm:pt-8 grid grid-cols-3 gap-3 sm:gap-4 border-t border-gray-200/60">
+            <div
+              ref={statsRef}
+              className="pt-6 sm:pt-8 grid grid-cols-3 gap-3 sm:gap-4 border-t border-white/10"
+            >
               <div className="stat-item space-y-1 text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-1.5 sm:gap-2">
-                  <Users className="h-4 w-4 sm:h-5 sm:w-5 text-orange-500" />
-                  <span className="text-xl sm:text-2xl font-bold text-gray-900">10K+</span>
+                  <Users className="h-4 w-4 sm:h-5 sm:w-5 text-teal-400" />
+                  <span className="text-xl sm:text-2xl font-bold text-white">
+                    20 000+
+                  </span>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-500">Clients actifs</p>
+                <p className="text-xs sm:text-sm text-slate-400">
+                  Employés supportés
+                </p>
               </div>
               <div className="stat-item space-y-1 text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-1.5 sm:gap-2">
-                  <Car className="h-4 w-4 sm:h-5 sm:w-5 text-orange-500" />
-                  <span className="text-xl sm:text-2xl font-bold text-gray-900">5K+</span>
+                  <Activity className="h-4 w-4 sm:h-5 sm:w-5 text-teal-400" />
+                  <span className="text-xl sm:text-2xl font-bold text-white">
+                    100%
+                  </span>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-500">Chauffeurs</p>
+                <p className="text-xs sm:text-sm text-slate-400">
+                  Traçabilité des activités
+                </p>
               </div>
               <div className="stat-item space-y-1 text-center lg:text-left">
                 <div className="flex items-center justify-center lg:justify-start gap-1.5 sm:gap-2">
-                  <CreditCard className="h-4 w-4 sm:h-5 sm:w-5 text-orange-500" />
-                  <span className="text-xl sm:text-2xl font-bold text-gray-900">50K+</span>
+                  <Layers className="h-4 w-4 sm:h-5 sm:w-5 text-teal-400" />
+                  <span className="text-xl sm:text-2xl font-bold text-white">
+                    Multi-projet
+                  </span>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-500">Trajets réalisés</p>
+                <p className="text-xs sm:text-sm text-slate-400">
+                  Gestion simultanée
+                </p>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Content - Cards & Phone Image */}
+          {/* ── Right Content — Dashboard Mockup ── */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
             className="relative flex items-center justify-center mt-8 lg:mt-0"
           >
-            {/* PHONE - Réduit sur mobile */}
             <motion.div
-              className="phone-mockup relative z-10"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={isInView ? { scale: 1, opacity: 1 } : {}}
               transition={{ duration: 0.8 }}
+              className="w-full"
             >
-              <img
-                src="/phones-mockup.png"
-                className="w-full max-w-[240px] sm:max-w-[280px] lg:max-w-md drop-shadow-2xl"
-                alt="app mockup"
-              />
+              <DashboardMockup />
             </motion.div>
 
-            {/* LEFT FLOAT CARD - Caché sur mobile */}
+            {/* LEFT FLOAT CARD */}
             <div className="float-card-left absolute top-10 -left-6 z-20 hidden lg:block">
-              <Card className="w-44 backdrop-blur-xl bg-white/60 border border-white/40 shadow-xl rounded-2xl">
+              <Card className="w-44 backdrop-blur-xl bg-[#0B1220]/80 border border-teal-500/20 shadow-xl rounded-2xl">
                 <CardContent className="p-3 space-y-2">
                   <div className="flex justify-between items-center">
-                    <p className="text-xs font-semibold">Chauffeurs</p>
-                    <span className="text-[10px] text-orange-500">Live</span>
+                    <p className="text-xs font-semibold text-white/80">
+                      Projets actifs
+                    </p>
+                    <span className="text-[10px] text-teal-400 font-semibold">
+                      Live
+                    </span>
                   </div>
-
-                  {recentDrivers.slice(0, 2).map((d) => (
-                    <div key={d.id} className="flex items-center gap-2">
-                      <Avatar className="h-7 w-7">
-                        <AvatarImage src={d.avatar} />
-                        <AvatarFallback className="text-[10px]">
-                          {d.name.split(" ").map(n => n[0]).join("")}
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="leading-tight">
-                        <p className="text-[11px] font-medium">{d.name}</p>
-                        <p className="text-[10px] text-gray-500">★ {d.rating}</p>
-                      </div>
-                    </div>
-                  ))}
+                  <p className="text-2xl font-bold text-teal-300">12</p>
+                  <p className="text-[10px] text-slate-400">
+                    +2 ce trimestre
+                  </p>
                 </CardContent>
               </Card>
             </div>
 
-            {/* RIGHT FLOAT CARD - Caché sur mobile */}
+            {/* RIGHT FLOAT CARD */}
             <div className="float-card-right absolute bottom-14 -right-6 z-20 hidden lg:block">
-              <Card className="w-48 backdrop-blur-xl bg-white/60 border border-white/40 shadow-xl rounded-2xl">
+              <Card className="w-48 backdrop-blur-xl bg-[#0B1220]/80 border border-teal-500/20 shadow-xl rounded-2xl">
                 <CardContent className="p-3 space-y-2">
-                  <p className="text-xs font-semibold">Recherche</p>
-
-                  <div className="relative">
-                    <Search className="absolute left-2 top-2 h-3 w-3 text-gray-400" />
-                    <Input className="h-7 pl-7 text-[11px] bg-white/70 border-white/40" />
+                  <p className="text-xs font-semibold text-white/80">
+                    Taux de complétion
+                  </p>
+                  <div className="flex items-end gap-1">
+                    <p className="text-2xl font-bold text-cyan-300">78%</p>
+                    <p className="text-[10px] text-teal-400 pb-1">▲ +4%</p>
                   </div>
-
-                  <div className="space-y-1">
-                    {recentDrivers.map((d) => (
-                      <div
-                        key={d.id}
-                        className="text-[11px] px-2 py-1 rounded-md hover:bg-white/60"
-                      >
-                        {d.name}
-                      </div>
-                    ))}
+                  <div className="h-1.5 rounded-full bg-white/10">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-teal-400 to-cyan-400"
+                      style={{ width: "78%" }}
+                    />
                   </div>
                 </CardContent>
               </Card>
             </div>
 
-            {/* Mobile-only floating indicators */}
-            <div className="lg:hidden absolute -bottom-3 left-4 z-20">
-              <Card className="backdrop-blur-xl bg-white/80 border border-white/40 shadow-lg rounded-xl">
-                <CardContent className="p-2.5">
-                  <div className="flex items-center gap-2">
-                    <div className="flex -space-x-2">
-                      {recentDrivers.slice(0, 3).map((d, i) => (
-                        <Avatar key={i} className="h-6 w-6 border border-white">
-                          <AvatarFallback className="text-[10px] bg-orange-100 text-orange-700">
-                            {d.name.split(" ").map(n => n[0]).join("")}
-                          </AvatarFallback>
-                        </Avatar>
-                      ))}
-                    </div>
-                    <span className="text-xs font-medium text-gray-700">+12 à proximité</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Mobile-only rating badge */}
-            <div className="lg:hidden absolute -top-2 right-2 z-20">
-              <Card className="backdrop-blur-xl bg-white/80 border border-white/40 shadow-lg rounded-full">
-                <CardContent className="p-2">
-                  <div className="flex items-center gap-1">
-                    <span className="text-amber-400 text-sm">★</span>
-                    <span className="text-xs font-bold text-gray-900">4.9</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* GLOW BACKGROUND */}
+            {/* Glow Background */}
             <div className="absolute inset-0 -z-10">
-              <div className="absolute top-20 left-10 w-40 sm:w-60 h-40 sm:h-60 bg-orange-300/20 blur-3xl rounded-full" />
-              <div className="absolute bottom-10 right-10 w-40 sm:w-60 h-40 sm:h-60 bg-blue-300/20 blur-3xl rounded-full" />
+              <div className="absolute top-20 left-10 w-40 sm:w-60 h-40 sm:h-60 bg-teal-400/10 blur-3xl rounded-full" />
+              <div className="absolute bottom-10 right-10 w-40 sm:w-60 h-40 sm:h-60 bg-cyan-400/10 blur-3xl rounded-full" />
             </div>
           </motion.div>
         </div>

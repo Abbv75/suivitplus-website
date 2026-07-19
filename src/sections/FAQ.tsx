@@ -12,24 +12,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 const faqs = [
   {
-    q: "Comment fonctionne Chauffy exactement ?",
-    a: "Vous commandez un chauffeur via l'application. Il vient à votre position et conduit votre propre voiture vers la destination de votre choix. Vous restez passager dans votre véhicule.",
+    q: "Comment créer un projet dans Suivit+ ?",
+    a: "Connectez-vous à l'application, accédez au tableau de bord et configurez votre projet en définissant vos activités, vos équipes et vos indicateurs de performance.",
   },
   {
-    q: "Les chauffeurs sont-ils vérifiés ?",
-    a: "Oui, chaque chauffeur passe par un processus de vérification rigoureux : identité, permis de conduire, casier judiciaire et test de conduite pratique.",
+    q: "Qui peut accéder à l'application ?",
+    a: "L'accès est contrôlé par un système de rôles et de droits. Chaque utilisateur se voit attribuer des permissions spécifiques selon sa fonction : gestionnaire, superviseur, agent de terrain ou administrateur.",
   },
   {
-    q: "Quels sont les moyens de paiement acceptés ?",
-    a: "Nous acceptons Orange Money, Moov Money, les cartes bancaires et les paiements en espèces.",
+    q: "Comment générer un rapport d'état ?",
+    a: "Depuis le menu « État », sélectionnez la période souhaitée et cliquez sur « Exporter ». Le rapport est généré automatiquement au format Word avec toutes les données consolidées.",
   },
   {
-    q: "Est-ce disponible en dehors de Bamako ?",
-    a: "Pour le moment, Chauffy est disponible à Bamako. Nous prévoyons de nous étendre à d'autres villes du Mali très prochainement.",
+    q: "Les données sont-elles sécurisées ?",
+    a: "Oui, toutes les données sont protégées par une authentification sécurisée. Les accès sont audités et chaque action est traçable dans le système.",
   },
   {
-    q: "Que se passe-t-il en cas de problème pendant la course ?",
-    a: "Notre support client est disponible 24h/24. Vous pouvez nous contacter directement depuis l'application en cas de besoin.",
+    q: "Peut-on gérer plusieurs projets simultanément ?",
+    a: "Absolument. Suivit+ est conçu pour gérer plusieurs projets en parallèle, avec une vision globale sur le tableau de bord principal et une navigation facile entre les différents projets.",
   },
 ];
 
@@ -42,8 +42,14 @@ const FAQ = () => {
         ".faq-container",
         { opacity: 0, y: 40 },
         {
-          opacity: 1, y: 0, duration: 0.8,
-          scrollTrigger: { trigger: ".faq-container", start: "top 80%", toggleActions: "play none none reverse" },
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: ".faq-container",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
         }
       );
     }, sectionRef);

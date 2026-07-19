@@ -6,33 +6,36 @@
 
 @layer base {
   :root {
-    --background: 40 33% 98%;
-    --foreground: 220 20% 10%;
+    /* Suivit+ Light Mode - fond clair avec accents teal */
+    --background: 210 33% 98%;
+    --foreground: 220 30% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 10%;
+    --card-foreground: 220 30% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 10%;
+    --popover-foreground: 220 30% 8%;
 
-    --primary: 38 100% 55%;
-    --primary-foreground: 220 20% 10%;
+    /* Primary = Teal #2DD4BF */
+    --primary: 174 63% 51%;
+    --primary-foreground: 220 30% 8%;
 
-    --secondary: 220 15% 95%;
-    --secondary-foreground: 220 20% 20%;
+    --secondary: 220 20% 94%;
+    --secondary-foreground: 220 30% 20%;
 
-    --muted: 220 15% 95%;
-    --muted-foreground: 220 10% 50%;
+    --muted: 220 20% 94%;
+    --muted-foreground: 220 15% 45%;
 
-    --accent: 38 100% 55%;
-    --accent-foreground: 220 20% 10%;
+    /* Accent = Coral #FF6B4A */
+    --accent: 13 100% 65%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
-    --ring: 38 100% 55%;
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 174 63% 51%;
 
     --radius: 1rem;
 
@@ -43,52 +46,54 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 174 63% 51%;
 
-    /* Chauffy custom tokens */
-    --chauffy-orange: 38 100% 55%;
-    --chauffy-dark: 220 20% 10%;
-    --chauffy-cream: 40 33% 98%;
-    --chauffy-gray: 220 10% 50%;
-    --chauffy-light: 220 15% 96%;
+    /* Suivit+ custom tokens */
+    --suivit-teal: 174 63% 51%;       /* #2DD4BF */
+    --suivit-coral: 13 100% 65%;      /* #FF6B4A */
+    --suivit-ink: 220 30% 8%;         /* #0B1220 near-black navy */
+    --suivit-ink-mid: 220 30% 16%;    /* #111B30 */
+    --suivit-surface: 210 33% 98%;
+    --suivit-muted: 220 15% 45%;
 
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'DM Sans', sans-serif;
 
-    --shadow-soft: 0 4px 24px -4px hsl(220 20% 10% / 0.08);
-    --shadow-card: 0 8px 32px -8px hsl(220 20% 10% / 0.12);
-    --shadow-elevated: 0 16px 48px -12px hsl(220 20% 10% / 0.16);
-    --shadow-glow: 0 0 40px hsl(38 100% 55% / 0.3);
+    --shadow-soft: 0 4px 24px -4px hsl(220 30% 8% / 0.08);
+    --shadow-card: 0 8px 32px -8px hsl(220 30% 8% / 0.12);
+    --shadow-elevated: 0 16px 48px -12px hsl(220 30% 8% / 0.18);
+    --shadow-glow: 0 0 40px hsl(174 63% 51% / 0.35);
   }
 
   .dark {
-    --background: 220 20% 7%;
-    --foreground: 40 33% 98%;
+    /* Suivit+ Dark Mode — palette navy profond */
+    --background: 220 30% 5%;         /* #0B1220 ink-950 */
+    --foreground: 174 20% 95%;
 
-    --card: 220 20% 10%;
-    --card-foreground: 40 33% 98%;
+    --card: 220 30% 10%;              /* #111B30 ink-850 */
+    --card-foreground: 174 20% 95%;
 
-    --popover: 220 20% 10%;
-    --popover-foreground: 40 33% 98%;
+    --popover: 220 30% 10%;
+    --popover-foreground: 174 20% 95%;
 
-    --primary: 38 100% 55%;
-    --primary-foreground: 220 20% 10%;
+    --primary: 174 63% 51%;           /* teal-400 */
+    --primary-foreground: 220 30% 8%;
 
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 40 33% 98%;
+    --secondary: 220 25% 18%;         /* ink-750 */
+    --secondary-foreground: 174 20% 90%;
 
-    --muted: 220 15% 15%;
-    --muted-foreground: 220 10% 60%;
+    --muted: 220 25% 18%;
+    --muted-foreground: 220 15% 60%;
 
-    --accent: 220 15% 15%;
-    --accent-foreground: 40 33% 98%;
+    --accent: 13 100% 65%;            /* coral-500 */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 38 100% 55%;
+    --border: 220 25% 20%;
+    --input: 220 25% 20%;
+    --ring: 174 63% 51%;
   }
 }
 
@@ -116,7 +121,11 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-cyan-300;
+  }
+
+  .text-gradient-coral {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#2DD4BF] via-[#FF6B4A] to-[#2DD4BF];
   }
 
   .glass-card {

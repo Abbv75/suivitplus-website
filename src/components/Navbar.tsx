@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import { APP_URL } from "@/lib/config";
 
 const navLinks = [
   { label: "Accueil", href: "/" },
-  { label: "Services", href: "/services" },
+  { label: "Modules", href: "/modules" },
   { label: "Fonctionnalités", href: "/features" },
-  { label: "Contacts", href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -60,7 +61,7 @@ const Navbar = () => {
         >
           <img
             src="/logo.png"
-            alt="Chauffy logo"
+            alt="Suivit+ logo"
             className="h-16 w-auto object-contain"
           />
         </motion.a>
@@ -84,7 +85,7 @@ const Navbar = () => {
                 <span
                   className={`relative z-10 transition-colors duration-200 ${
                     isActive
-                      ? "text-orange-600"
+                      ? "text-teal-500"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
@@ -95,7 +96,7 @@ const Navbar = () => {
                 {isActive && (
                   <motion.div
                     layoutId="activeNavIndicator"
-                    className="absolute inset-0 bg-orange-50 rounded-lg -z-0"
+                    className="absolute inset-0 bg-teal-50/10 rounded-lg -z-0"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -111,7 +112,7 @@ const Navbar = () => {
                 {hoveredLink === link.href && !isActive && (
                   <motion.div
                     layoutId="hoverUnderline"
-                    className="absolute -bottom-1 left-1 right-1 h-0.5 bg-orange-300 rounded-full"
+                    className="absolute -bottom-1 left-1 right-1 h-0.5 bg-teal-300 rounded-full"
                     initial={{ opacity: 0, scaleX: 0 }}
                     animate={{ opacity: 1, scaleX: 1 }}
                     exit={{ opacity: 0, scaleX: 0 }}
@@ -122,7 +123,7 @@ const Navbar = () => {
                 {/* Soulignement permanent pour la page active */}
                 {isActive && (
                   <motion.div
-                    className="absolute -bottom-1 left-2 right-2 h-0.5 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full"
+                    className="absolute -bottom-1 left-2 right-2 h-0.5 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full"
                     layoutId="activeUnderline"
                     transition={{
                       type: "spring",
@@ -138,30 +139,27 @@ const Navbar = () => {
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0, opacity: 0 }}
-                    className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-orange-500"
+                    className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-teal-400"
                   />
                 )}
               </motion.a>
             );
           })}
-        </div>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
+          {/* CTA Button desktop */}
           <motion.a
-            href="#cta"
+            href={APP_URL}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="relative inline-flex items-center px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-heading font-semibold text-sm shadow-lg shadow-orange-500/20 overflow-hidden group"
+            className="ml-4 relative inline-flex items-center px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-400 text-[#0B1220] font-heading font-semibold text-sm shadow-lg shadow-teal-500/25 overflow-hidden"
           >
-            {/* Effet de brillance */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
               initial={{ x: "-100%" }}
               animate={{ x: "200%" }}
               transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
             />
-            <span className="relative z-10">Télécharger l'app</span>
+            <span className="relative z-10">Accéder à l'app →</span>
           </motion.a>
         </div>
 
@@ -221,8 +219,8 @@ const Navbar = () => {
                     transition={{ delay: index * 0.05 }}
                     className={`relative text-base font-medium py-3 px-4 rounded-xl transition-all duration-200 ${
                       isActive
-                        ? "bg-orange-50 text-orange-600"
-                        : "text-foreground hover:bg-gray-50"
+                        ? "bg-teal-50/10 text-teal-400"
+                        : "text-foreground hover:bg-gray-50/5"
                     }`}
                   >
                     <span className="flex items-center justify-between">
@@ -231,7 +229,7 @@ const Navbar = () => {
                         <motion.div
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
-                          className="w-2 h-2 rounded-full bg-orange-500"
+                          className="w-2 h-2 rounded-full bg-teal-400"
                         />
                       )}
                     </span>
@@ -240,28 +238,31 @@ const Navbar = () => {
                     {isActive && (
                       <motion.div
                         layoutId="mobileActiveIndicator"
-                        className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-orange-500 to-amber-500 rounded-r-full"
+                        className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-teal-400 to-cyan-400 rounded-r-full"
                       />
                     )}
                   </motion.a>
                 );
               })}
               
+              {/* CTA Button mobile */}
               <motion.a
-                href="#cta"
+                href={APP_URL}
                 onClick={() => setMobileOpen(false)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="relative inline-flex items-center justify-center px-6 py-4 rounded-xl bg-gradient-to-r from-orange-500 to-amber-500 text-white font-heading font-semibold text-sm mt-4 shadow-lg shadow-orange-500/20 overflow-hidden group"
+                className="relative inline-flex items-center justify-center px-6 py-4 rounded-xl bg-gradient-to-r from-teal-400 to-cyan-400 text-[#0B1220] font-heading font-semibold text-sm mt-4 shadow-lg shadow-teal-500/25 overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
                   initial={{ x: "-100%" }}
                   animate={{ x: "200%" }}
                   transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 2 }}
                 />
-                <span className="relative z-10">Télécharger l'app</span>
+                <span className="relative z-10">Accéder à l'app →</span>
               </motion.a>
             </div>
           </motion.div>

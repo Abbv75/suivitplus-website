@@ -2,8 +2,9 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
-import { ArrowRight, Smartphone, Apple, PlayCircle, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, LayoutDashboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { APP_URL } from "@/lib/config";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,7 +33,7 @@ const CTA = () => {
         }
       );
 
-      // Animation du halo lumineux qui suit subtilement la souris (optionnel) ou oscille
+      // Animation du halo lumineux qui oscille
       gsap.to(glowRef.current, {
         x: "20%",
         y: "10%",
@@ -64,13 +65,13 @@ const CTA = () => {
     <section id="cta" ref={sectionRef} className="py-24 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="cta-inner relative rounded-[2.5rem] bg-[#0A0C10] text-white overflow-hidden p-10 lg:p-24 border border-white/10 shadow-2xl">
-          
+
           {/* Arrière-plan dynamique */}
-          <div 
+          <div
             ref={glowRef}
-            className="absolute -top-24 -left-24 w-[500px] h-[500px] bg-primary/30 rounded-full blur-[120px] pointer-events-none opacity-50" 
+            className="absolute -top-24 -left-24 w-[500px] h-[500px] bg-[#2DD4BF]/25 rounded-full blur-[120px] pointer-events-none opacity-50"
           />
-          <div className="absolute -bottom-24 -right-24 w-[400px] h-[400px] bg-orange-500/20 rounded-full blur-[100px] pointer-events-none opacity-40" />
+          <div className="absolute -bottom-24 -right-24 w-[400px] h-[400px] bg-[#FF6B4A]/20 rounded-full blur-[100px] pointer-events-none opacity-40" />
 
           {/* Particules décoratives */}
           <div ref={particlesRef} className="absolute inset-0 pointer-events-none">
@@ -87,68 +88,82 @@ const CTA = () => {
           </div>
 
           <div className="relative z-10 flex flex-col items-center text-center space-y-10">
-            {/* Petit badge */}
-            <motion.div 
+
+            {/* Badge */}
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-primary"
+              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-[#2DD4BF]"
             >
               <Sparkles size={14} className="animate-pulse" />
-              L'app n°1 des chauffeurs privés
+              ✨ La plateforme n°1 du suivi de projets
             </motion.div>
 
+            {/* Titre */}
             <h2 className="text-4xl lg:text-7xl font-bold leading-[1.1] tracking-tight max-w-4xl">
-              Prêt à rouler <br />
-              <span className="bg-gradient-to-r from-primary via-orange-400 to-primary bg-clip-text text-transparent animate-gradient-x">
-                sans le moindre stress
-              </span> ?
+              Prêt à piloter <br />
+              <span className="bg-gradient-to-r from-[#2DD4BF] via-cyan-400 to-[#2DD4BF] bg-clip-text text-transparent animate-gradient-x">
+                vos projets
+              </span>{" "}
+              <br />
+              avec rigueur&nbsp;?
             </h2>
 
+            {/* Description */}
             <p className="text-slate-400 text-lg lg:text-xl max-w-xl leading-relaxed">
-              Téléchargez <span className="text-white font-semibold">Chauffy</span> et rejoignez des milliers d'utilisateurs qui voyagent en toute sérénité.
+              Rejoignez les organisations qui font confiance à{" "}
+              <span className="text-white font-semibold">Suivit+</span>{" "}
+              pour gérer leurs activités, mesurer leurs impacts et générer leurs rapports.
             </p>
 
-            {/* Boutons redesignés */}
+            {/* Boutons */}
             <div className="flex flex-col sm:flex-row items-center gap-5 w-full justify-center pt-4">
-              
-              <motion.button
+
+              <motion.a
+                href={APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, translateY: -5 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-2xl font-bold text-lg shadow-[0_20px_40px_rgba(251,188,5,0.2)] hover:shadow-primary/40 transition-all"
+                className="group relative flex items-center gap-3 bg-gradient-to-r from-[#2DD4BF] to-cyan-400 text-[#0B1220] px-8 py-4 rounded-2xl font-bold text-lg shadow-[0_20px_40px_rgba(45,212,191,0.25)] hover:shadow-[#2DD4BF]/40 transition-all"
               >
-                <div className="flex flex-col items-start leading-none">
-                  <span className="text-[10px] uppercase tracking-wider opacity-80">Disponible sur</span>
-                  <span className="text-base">App Store / Play Store</span>
-                </div>
-                <Smartphone className="group-hover:rotate-12 transition-transform" />
-              </motion.button>
+                <LayoutDashboard className="group-hover:rotate-12 transition-transform" size={20} />
+                🚀 Accéder à Suivit+
+              </motion.a>
 
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="lg"
+                asChild
                 className="bg-white/5 border-white/10 hover:bg-white/10 text-white px-8 py-7 rounded-2xl text-lg gap-3"
               >
-                Voir comment ça marche
-                <PlayCircle size={20} className="text-primary" />
+                <a href="/features">
+                  Découvrir les fonctionnalités
+                  <ArrowRight size={20} className="text-[#2DD4BF]" />
+                </a>
               </Button>
             </div>
 
-            {/* Preuve sociale discrète */}
+            {/* Preuve sociale */}
             <div className="pt-8 flex flex-col items-center gap-4">
               <div className="flex -space-x-3">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-[#0A0C10] bg-slate-800 flex items-center justify-center overflow-hidden">
-                    <img src={`https://i.pravatar.cc/100?u=${i}`} alt="user" />
+                  <div
+                    key={i}
+                    className="w-10 h-10 rounded-full border-2 border-[#0A0C10] bg-slate-800 flex items-center justify-center overflow-hidden"
+                  >
+                    <img src={`https://i.pravatar.cc/100?u=suivit${i}`} alt="utilisateur" />
                   </div>
                 ))}
-                <div className="w-10 h-10 rounded-full border-2 border-[#0A0C10] bg-primary text-black flex items-center justify-center text-xs font-bold">
-                  +2k
+                <div className="w-10 h-10 rounded-full border-2 border-[#0A0C10] bg-[#2DD4BF] text-[#0B1220] flex items-center justify-center text-xs font-bold">
+                  +20k
                 </div>
               </div>
               <p className="text-sm text-slate-500 italic">
-                Déjà adopté par plus de 2,000 clients satisfaits
+                + de 20 000 employés gérés à travers nos clients
               </p>
             </div>
+
           </div>
         </div>
       </div>
