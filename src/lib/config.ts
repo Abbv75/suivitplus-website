@@ -4,7 +4,7 @@
  */
 
 /** URL de l'application Suivit+ (suivi-évaluation AngularJS) */
-export const APP_URL = "/suiviplus/index.html";
+export const APP_URL = "https://test.suivitplus.com";
 
 /** Nom complet du produit */
 export const APP_NAME = "Suivit+";

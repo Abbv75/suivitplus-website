@@ -47,10 +47,21 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl shadow-sm border-b border-border/50"
+          ? "bg-background/90 backdrop-blur-xl shadow-sm border-b border-border/50"
           : "bg-transparent"
       }`}
     >
+      {/* Bandeau de Test */}
+      <div className="bg-[#111B30] border-b border-teal-500/20 text-center py-2 px-4 text-xs md:text-sm text-slate-300 flex flex-wrap justify-center items-center gap-x-3 gap-y-1">
+        <span className="font-semibold text-teal-400">Environnement de test :</span> 
+        <span>Login : <code className="bg-teal-500/20 px-1.5 py-0.5 rounded text-teal-300 font-mono">user223</code></span>
+        <span className="hidden sm:inline">|</span>
+        <span>MDP : <code className="bg-teal-500/20 px-1.5 py-0.5 rounded text-teal-300 font-mono">user223</code></span>
+        <a href="https://test.suivitplus.com" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:text-teal-300 underline underline-offset-2 ml-1 sm:ml-2 font-medium">
+          test.suivitplus.com →
+        </a>
+      </div>
+
       <div className="section-container flex items-center justify-between h-20">
         {/* Logo */}
         <motion.a
@@ -112,7 +123,7 @@ const Navbar = () => {
                 {hoveredLink === link.href && !isActive && (
                   <motion.div
                     layoutId="hoverUnderline"
-                    className="absolute -bottom-1 left-1 right-1 h-0.5 bg-teal-300 rounded-full"
+                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-teal-300 rounded-full"
                     initial={{ opacity: 0, scaleX: 0 }}
                     animate={{ opacity: 1, scaleX: 1 }}
                     exit={{ opacity: 0, scaleX: 0 }}
@@ -123,7 +134,7 @@ const Navbar = () => {
                 {/* Soulignement permanent pour la page active */}
                 {isActive && (
                   <motion.div
-                    className="absolute -bottom-1 left-2 right-2 h-0.5 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full"
+                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full"
                     layoutId="activeUnderline"
                     transition={{
                       type: "spring",

@@ -224,7 +224,7 @@ export function HeroSection() {
       className="relative overflow-hidden bg-gradient-to-br from-[#0B1220] via-[#111B30] to-[#0B1220]"
     >
       {/* Mobile top padding */}
-      <div className="pt-20 lg:pt-0" />
+      <div className="pt-28 lg:pt-10" />
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
