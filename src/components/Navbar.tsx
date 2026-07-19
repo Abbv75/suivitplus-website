@@ -123,7 +123,7 @@ const Navbar = () => {
                 {hoveredLink === link.href && !isActive && (
                   <motion.div
                     layoutId="hoverUnderline"
-                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-teal-300 rounded-full"
+                    className="absolute -bottom-1 left-0 right-0 mx-auto w-6 h-0.5 bg-teal-300 rounded-full"
                     initial={{ opacity: 0, scaleX: 0 }}
                     animate={{ opacity: 1, scaleX: 1 }}
                     exit={{ opacity: 0, scaleX: 0 }}
@@ -134,7 +134,7 @@ const Navbar = () => {
                 {/* Soulignement permanent pour la page active */}
                 {isActive && (
                   <motion.div
-                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full"
+                    className="absolute -bottom-1 left-0 right-0 mx-auto w-8 h-0.5 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-full"
                     layoutId="activeUnderline"
                     transition={{
                       type: "spring",
@@ -150,7 +150,7 @@ const Navbar = () => {
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0, opacity: 0 }}
-                    className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-teal-400"
+                    className="absolute -top-1 left-0 right-0 mx-auto w-1 h-1 rounded-full bg-teal-400"
                   />
                 )}
               </motion.a>
