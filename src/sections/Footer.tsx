@@ -1,5 +1,5 @@
 import { MapPin, Phone, Mail } from "lucide-react";
-import { APP_URL } from "@/lib/config";
+import { APP_URL, CONTACT_ADDRESS, CONTACT_PHONE, CONTACT_EMAIL } from "@/lib/config";
 
 const Footer = () => (
   <footer className="bg-foreground text-background/80 pt-16 pb-8">
@@ -47,16 +47,18 @@ const Footer = () => (
           <h4 className="font-heading font-semibold text-background mb-4">Contact</h4>
           <ul className="space-y-3 text-sm text-background/50">
             <li className="flex items-center gap-2">
-              <MapPin size={14} className="text-primary" />
-              Dakar, Sénégal
+              <MapPin size={14} className="text-primary shrink-0" />
+              {CONTACT_ADDRESS}
+            </li>
+            <li className="flex items-start gap-2">
+              <Phone size={14} className="text-primary shrink-0 mt-1" />
+              <span className="whitespace-pre-line">
+                {CONTACT_PHONE.replace(" / ", "\n")}
+              </span>
             </li>
             <li className="flex items-center gap-2">
-              <Phone size={14} className="text-primary" />
-              +221 77 000 00 00
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail size={14} className="text-primary" />
-              contact@suivitplus.com
+              <Mail size={14} className="text-primary shrink-0" />
+              {CONTACT_EMAIL}
             </li>
           </ul>
         </div>

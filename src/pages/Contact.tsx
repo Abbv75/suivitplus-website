@@ -29,6 +29,7 @@ import {
 import { cn } from "@/lib/utils";
 import Footer from "@/sections/Footer";
 import Navbar from "@/components/Navbar";
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_ADDRESS } from "@/lib/config";
 
 // ─── Schéma Zod ──────────────────────────────────────────────────────────────
 const contactFormSchema = z.object({
@@ -46,21 +47,21 @@ const infoCards = [
     {
         icon: Mail,
         label: "Email",
-        value: "contact@suivitplus.com",
+        value: CONTACT_EMAIL,
         iconBg: "bg-[#2DD4BF]",
         delay: 0,
     },
     {
         icon: Phone,
         label: "Téléphone",
-        value: "+221 77 000 00 00",
+        value: CONTACT_PHONE.replace(" / ", "\n"),
         iconBg: "bg-blue-500",
         delay: 0.1,
     },
     {
         icon: MapPin,
         label: "Adresse",
-        value: "Dakar, Sénégal",
+        value: CONTACT_ADDRESS,
         iconBg: "bg-[#FF6B4A]",
         delay: 0.2,
     },
@@ -475,7 +476,7 @@ export default function ContactPage() {
                                                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-0.5">
                                                     {card.label}
                                                 </p>
-                                                <p className="text-sm font-semibold text-[#0B1220]">
+                                                <p className="text-sm font-semibold text-[#0B1220] whitespace-pre-line">
                                                     {card.value}
                                                 </p>
                                             </div>

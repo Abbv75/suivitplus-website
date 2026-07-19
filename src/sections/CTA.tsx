@@ -96,7 +96,7 @@ const CTA = () => {
               className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-[#2DD4BF]"
             >
               <Sparkles size={14} className="animate-pulse" />
-              ✨ La plateforme n°1 du suivi de projets
+              Solution complète de suivi et évaluation
             </motion.div>
 
             {/* Titre */}
@@ -111,7 +111,7 @@ const CTA = () => {
 
             {/* Description */}
             <p className="text-slate-400 text-lg lg:text-xl max-w-xl leading-relaxed">
-              Rejoignez les organisations qui font confiance à{" "}
+              Rejoignez les institutions, ONG, banques et gouvernements qui font confiance à{" "}
               <span className="text-white font-semibold">Suivit+</span>{" "}
               pour gérer leurs activités, mesurer leurs impacts et générer leurs rapports.
             </p>
@@ -128,7 +128,7 @@ const CTA = () => {
                 className="group relative flex items-center gap-3 bg-gradient-to-r from-[#2DD4BF] to-cyan-400 text-[#0B1220] px-8 py-4 rounded-2xl font-bold text-lg shadow-[0_20px_40px_rgba(45,212,191,0.25)] hover:shadow-[#2DD4BF]/40 transition-all"
               >
                 <LayoutDashboard className="group-hover:rotate-12 transition-transform" size={20} />
-                🚀 Accéder à Suivit+
+                Accéder à Suivit+
               </motion.a>
 
               <Button

@@ -272,8 +272,8 @@ export function HeroSection() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 text-center lg:text-left px-2 sm:px-0"
             >
-              Suivit+ est la plateforme tout-en-un de suivi et évaluation pour
-              les organisations qui veulent des résultats mesurables.
+              Suivit+ est la plateforme tout-en-un de suivi et évaluation conçue pour
+              les institutions, les ONG, les services gouvernementaux et les banques.
             </motion.p>
 
             {/* CTA Buttons */}

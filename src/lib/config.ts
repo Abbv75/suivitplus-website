@@ -16,7 +16,7 @@ export const APP_TAGLINE = "Pilotez vos projets. Mesurez vos impacts.";
 export const CONTACT_EMAIL = "contact@suivitplus.com";
 
 /** Téléphone de contact */
-export const CONTACT_PHONE = "+221 77 000 00 00";
+export const CONTACT_PHONE = "+223 92 53 24 06 / +223 73 09 10 10";
 
 /** Localisation */
-export const CONTACT_ADDRESS = "Dakar, Sénégal";
+export const CONTACT_ADDRESS = "Bamako, Mali";
