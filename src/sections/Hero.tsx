@@ -246,7 +246,7 @@ export function HeroSection() {
                 variant="secondary"
                 className="bg-teal-500/15 text-teal-300 hover:bg-teal-500/20 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm border border-teal-500/30"
               >
-                🚀 Plateforme de suivi & évaluation de projets
+                Plateforme de suivi & évaluation de projets
               </Badge>
             </motion.div>
 
