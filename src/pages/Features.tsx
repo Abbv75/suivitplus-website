@@ -181,7 +181,7 @@ export default function FeaturesPage() {
                             transition={{ delay: 0.4, duration: 0.7 }}
                             className="text-lg lg:text-xl text-gray-300 leading-relaxed mb-10 max-w-3xl mx-auto"
                         >
-                            Suivit+ couvre l’intégralité du cycle de suivi-évaluation, de la planification à l’état final.
+                            Suvixy couvre l’intégralité du cycle de suivi-évaluation, de la planification à l’état final.
                         </motion.p>
                     </div>
                 </div>
@@ -262,14 +262,14 @@ export default function FeaturesPage() {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-3xl lg:text-4xl font-bold mb-4">La différence <span className="text-[#FF6B4A]">Suivit+</span></h2>
+                        <h2 className="text-3xl lg:text-4xl font-bold mb-4">La différence <span className="text-[#FF6B4A]">Suvixy</span></h2>
                         <p className="text-gray-400">Passez d'une gestion artisanale à une solution professionnelle intégrée.</p>
                     </motion.div>
 
                     <div className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
                         <div className="grid grid-cols-2 bg-white/5 p-6 font-semibold text-lg border-b border-white/10">
                             <div className="text-gray-400">Avant (Excel/Manuel)</div>
-                            <div className="text-[#2DD4BF]">Avec Suivit+</div>
+                            <div className="text-[#2DD4BF]">Avec Suvixy</div>
                         </div>
                         {comparisons.map((comp, idx) => (
                             <motion.div 

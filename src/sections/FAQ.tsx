@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const faqs = [
   {
-    q: "Comment créer un projet dans Suivit+ ?",
+    q: "Comment créer un projet dans Suvixy ?",
     a: "Connectez-vous à l'application, accédez au tableau de bord et configurez votre projet en définissant vos activités, vos équipes et vos indicateurs de performance.",
   },
   {
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "Peut-on gérer plusieurs projets simultanément ?",
-    a: "Absolument. Suivit+ est conçu pour gérer plusieurs projets en parallèle, avec une vision globale sur le tableau de bord principal et une navigation facile entre les différents projets.",
+    a: "Absolument. Suvixy est conçu pour gérer plusieurs projets en parallèle, avec une vision globale sur le tableau de bord principal et une navigation facile entre les différents projets.",
   },
 ];
 

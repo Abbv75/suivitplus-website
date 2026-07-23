@@ -10,7 +10,7 @@ const Footer = () => (
           <a href="/" className="flex items-center">
             <img
               src="/logo.png"
-              alt="Suivit+ logo"
+              alt="Suvixy logo"
               className="h-16 w-auto object-contain"
             />
           </a>
@@ -65,7 +65,7 @@ const Footer = () => (
       </div>
 
       <div className="border-t border-background/10 pt-8 text-center text-xs text-background/30">
-        © {new Date().getFullYear()} Suivit+. Tous droits réservés.
+        © {new Date().getFullYear()} Suvixy. Tous droits réservés.
       </div>
     </div>
   </footer>

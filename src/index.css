@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Suivit+ Light Mode - fond clair avec accents teal */
+    /* Suvixy Light Mode - fond clair avec accents teal */
     --background: 210 33% 98%;
     --foreground: 220 30% 8%;
 
@@ -48,13 +48,13 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 174 63% 51%;
 
-    /* Suivit+ custom tokens */
-    --suivit-teal: 174 63% 51%;       /* #2DD4BF */
-    --suivit-coral: 13 100% 65%;      /* #FF6B4A */
-    --suivit-ink: 220 30% 8%;         /* #0B1220 near-black navy */
-    --suivit-ink-mid: 220 30% 16%;    /* #111B30 */
-    --suivit-surface: 210 33% 98%;
-    --suivit-muted: 220 15% 45%;
+    /* Suvixy custom tokens */
+    --suvixy-teal: 174 63% 51%;       /* #2DD4BF */
+    --suvixy-coral: 13 100% 65%;      /* #FF6B4A */
+    --suvixy-ink: 220 30% 8%;         /* #0B1220 near-black navy */
+    --suvixy-ink-mid: 220 30% 16%;    /* #111B30 */
+    --suvixy-surface: 210 33% 98%;
+    --suvixy-muted: 220 15% 45%;
 
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'DM Sans', sans-serif;
@@ -66,7 +66,7 @@
   }
 
   .dark {
-    /* Suivit+ Dark Mode — palette navy profond */
+    /* Suvixy Dark Mode — palette navy profond */
     --background: 220 30% 5%;         /* #0B1220 ink-950 */
     --foreground: 174 20% 95%;
 

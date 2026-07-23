@@ -54,7 +54,7 @@ function StoreDashboardMockup() {
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
             <span className="text-xs font-semibold text-white/80">
-              Suivit+ — Vue projets
+              Suvixy — Vue projets
             </span>
           </div>
           <span className="text-[10px] text-teal-400 font-semibold">
@@ -261,7 +261,7 @@ const StorySection = () => {
                 className="px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold bg-gradient-to-r from-teal-500/10 to-cyan-500/10 text-teal-700 border-teal-200/60 backdrop-blur-sm"
               >
                 <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1.5 sm:mr-2 text-teal-500" />
-                Pourquoi Suivit+
+                Pourquoi Suvixy
               </Badge>
             </motion.div>
 
@@ -316,7 +316,7 @@ const StorySection = () => {
             {/* Description */}
             <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 leading-relaxed text-center lg:text-left px-1 sm:px-0 max-w-full break-words">
               Fini les tableurs Excel ou les rapports incomplets.{" "}
-              <span className="font-semibold text-gray-900">Suivit+</span>{" "}
+              <span className="font-semibold text-gray-900">Suvixy</span>{" "}
               centralise toutes vos données de projet : activités,
               décaissements, indicateurs, réunions. Tout est traçable, en temps
               réel.

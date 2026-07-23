@@ -107,7 +107,7 @@ const Features = () => {
             Pourquoi choisir{" "}
             <span className="relative">
               <span className="bg-gradient-to-r from-teal-500 to-cyan-400 bg-clip-text text-transparent">
-                Suivit+
+                Suvixy
               </span>
               <svg
                 className="absolute -bottom-2 left-0 w-full"

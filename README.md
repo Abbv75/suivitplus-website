@@ -1,10 +1,10 @@
-# Suivit+ — Site Vitrine
+# Suvixy — Site Vitrine
 
 ## 📌 Description
 
-**Suivit+** est une plateforme web complète de suivi et évaluation pour les organisations, les ONG et les entreprises souhaitant mesurer leurs impacts et piloter leurs projets de manière optimale.
+**Suvixy** est une plateforme web complète de suivi et évaluation pour les organisations, les ONG et les entreprises souhaitant mesurer leurs impacts et piloter leurs projets de manière optimale.
 
-Ce projet correspond au **site vitrine (landing page et pages de présentation)** de Suivit+. Il présente le concept, les fonctionnalités clés de la plateforme, les différents modules (Suivi Terrain, Finance, Analyse, Administration) et permet d'accéder à l'application principale.
+Ce projet correspond au **site vitrine (landing page et pages de présentation)** de Suvixy. Il présente le concept, les fonctionnalités clés de la plateforme, les différents modules (Suivi Terrain, Finance, Analyse, Administration) et permet d'accéder à l'application principale.
 
 **Configuration de l'URL de l'application :** 
 L'URL pointant vers l'application principale de gestion (AngularJS) peut être modifiée à un seul endroit dans le fichier : `src/lib/config.ts` via la constante `APP_URL`.
@@ -24,9 +24,9 @@ L'URL pointant vers l'application principale de gestion (AngularJS) peut être m
 
 ## 🎨 Design & Branding
 
-La charte graphique de Suivit+ (Teal / Coral / Navy) est configurée de manière centralisée :
+La charte graphique de Suvixy (Teal / Coral / Navy) est configurée de manière centralisée :
 - Variables globales dans `src/index.css` (propriétés `--primary`, `--background`, etc.)
-- Couleurs nommées dans `tailwind.config.ts` (objet `colors.suivit`)
+- Couleurs nommées dans `tailwind.config.ts` (objet `colors.suvixy`)
 
 ---
 

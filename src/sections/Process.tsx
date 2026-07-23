@@ -54,7 +54,7 @@ const Process = () => {
             Notre processus
           </p>
           <h2 className="font-heading text-4xl lg:text-5xl font-bold">
-            Comment nous avons construit Suivit+
+            Comment nous avons construit Suvixy
           </h2>
         </div>
 

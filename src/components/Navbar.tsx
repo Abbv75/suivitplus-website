@@ -57,8 +57,8 @@ const Navbar = () => {
         <span>Login : <code className="bg-teal-500/20 px-1.5 py-0.5 rounded text-teal-300 font-mono">user223</code></span>
         <span className="hidden sm:inline">|</span>
         <span>MDP : <code className="bg-teal-500/20 px-1.5 py-0.5 rounded text-teal-300 font-mono">user223</code></span>
-        <a href="https://test.suivitplus.com" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:text-teal-300 underline underline-offset-2 ml-1 sm:ml-2 font-medium">
-          test.suivitplus.com →
+        <a href="https://test.suvixy.com" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:text-teal-300 underline underline-offset-2 ml-1 sm:ml-2 font-medium">
+          test.suvixy.com →
         </a>
       </div>
 
@@ -72,7 +72,7 @@ const Navbar = () => {
         >
           <img
             src="/logo.png"
-            alt="Suivit+ logo"
+            alt="Suvixy logo"
             className="h-16 w-auto object-contain"
           />
         </motion.a>

@@ -156,7 +156,7 @@ export default function ModulesPage() {
                             Catalogue
                         </Badge>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                            Explorez les modules <span className="text-[#FF6B4A]">Suivit+</span>
+                            Explorez les modules <span className="text-[#FF6B4A]">Suvixy</span>
                         </h1>
                         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
                             Chaque module couvre un aspect essentiel du suivi-évaluation de vos projets,

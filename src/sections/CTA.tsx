@@ -112,7 +112,7 @@ const CTA = () => {
             {/* Description */}
             <p className="text-slate-400 text-lg lg:text-xl max-w-xl leading-relaxed">
               Rejoignez les institutions, ONG, banques et gouvernements qui font confiance à{" "}
-              <span className="text-white font-semibold">Suivit+</span>{" "}
+              <span className="text-white font-semibold">Suvixy</span>{" "}
               pour gérer leurs activités, mesurer leurs impacts et générer leurs rapports.
             </p>
 
@@ -128,7 +128,7 @@ const CTA = () => {
                 className="group relative flex items-center gap-3 bg-gradient-to-r from-[#2DD4BF] to-cyan-400 text-[#0B1220] px-8 py-4 rounded-2xl font-bold text-lg shadow-[0_20px_40px_rgba(45,212,191,0.25)] hover:shadow-[#2DD4BF]/40 transition-all"
               >
                 <LayoutDashboard className="group-hover:rotate-12 transition-transform" size={20} />
-                Accéder à Suivit+
+                Accéder à Suvixy
               </motion.a>
 
               <Button
@@ -152,7 +152,7 @@ const CTA = () => {
                     key={i}
                     className="w-10 h-10 rounded-full border-2 border-[#0A0C10] bg-slate-800 flex items-center justify-center overflow-hidden"
                   >
-                    <img src={`https://i.pravatar.cc/100?u=suivit${i}`} alt="utilisateur" />
+                    <img src={`https://i.pravatar.cc/100?u=suvixy${i}`} alt="utilisateur" />
                   </div>
                 ))}
                 <div className="w-10 h-10 rounded-full border-2 border-[#0A0C10] bg-[#2DD4BF] text-[#0B1220] flex items-center justify-center text-xs font-bold">

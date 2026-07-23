@@ -171,7 +171,7 @@ export function HowItWorks() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 px-2">
             Comment fonctionne{" "}
             <span className="text-[#2DD4BF] relative">
-              Suivit+
+              Suvixy
               <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <motion.path
                   d="M0,5 Q50,10 100,5"
@@ -324,7 +324,7 @@ function DashboardMockup() {
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
           <div className="w-2.5 h-2.5 rounded-full bg-teal-400" />
         </div>
-        <span className="text-white/60 text-xs font-mono">Suivit+ · Tableau de bord</span>
+        <span className="text-white/60 text-xs font-mono">Suvixy · Tableau de bord</span>
         <div className="w-14" />
       </div>
 

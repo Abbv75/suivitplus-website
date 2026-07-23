@@ -200,7 +200,7 @@ export default function ContactPage() {
                         custom={0.2}
                         className="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto"
                     >
-                        Une question sur Suivit+&nbsp;? Notre équipe est là pour vous aider — démo,
+                        Une question sur Suvixy&nbsp;? Notre équipe est là pour vous aider — démo,
                         support technique ou partenariat, nous vous répondons rapidement.
                     </motion.p>
                 </div>
@@ -510,11 +510,11 @@ export default function ContactPage() {
                                             Besoin d'une démo&nbsp;?
                                         </h4>
                                         <p className="text-sm text-slate-400 leading-relaxed mb-5">
-                                            Découvrez Suivit+ en action avec une démonstration
+                                            Découvrez Suvixy en action avec une démonstration
                                             personnalisée de notre équipe.
                                         </p>
                                         <a
-                                            href="mailto:contact@suivitplus.com?subject=Demande de démo"
+                                            href="mailto:contact@suvixy.com?subject=Demande de démo"
                                             className="inline-flex items-center gap-2 text-sm font-semibold text-[#2DD4BF] hover:text-white transition-colors"
                                         >
                                             Demander une démo

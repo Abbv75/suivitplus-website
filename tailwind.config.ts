@@ -51,7 +51,7 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        suivit: {
+        suvixy: {
           teal: '#2DD4BF',
           coral: '#FF6B4A',
           navy: '#0B1220',

@@ -51,7 +51,7 @@ const AppScreenshots = () => {
             transition={{ delay: 0.1 }}
             className="text-slate-500 text-lg max-w-2xl mx-auto"
           >
-            Découvrez l'interface intuitive et les fonctionnalités clés de Suivit+.
+            Découvrez l'interface intuitive et les fonctionnalités clés de Suvixy.
           </motion.p>
         </div>
 

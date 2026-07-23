@@ -48,7 +48,7 @@ function DashboardMockup() {
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
             <span className="text-xs font-semibold text-white/80">
-              Suivit+ — Tableau de bord
+              Suvixy — Tableau de bord
             </span>
           </div>
           <div className="flex gap-1">
@@ -272,7 +272,7 @@ export function HeroSection() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 text-center lg:text-left px-2 sm:px-0"
             >
-              Suivit+ est la plateforme tout-en-un de suivi et évaluation conçue pour
+              Suvixy est la plateforme tout-en-un de suivi et évaluation conçue pour
               les institutions, les ONG, les services gouvernementaux et les banques.
             </motion.p>
 
