@@ -125,7 +125,7 @@ const EnhancedServices = () => {
                         whileInView={{ opacity: 1 }}
                         className="text-lg text-slate-500 max-w-sm leading-relaxed"
                     >
-                        Que ce soit pour un vol à l'aube ou une soirée tardive, Chauffy adapte ses services à votre style de vie.
+                        Que ce soit pour un vol à l'aube ou une soirée tardive, Suivit+ adapte ses services à votre style de vie.
                     </motion.p>
                 </div>
 

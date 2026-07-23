@@ -423,7 +423,7 @@ export default function ServicesPage() {
                 transition={{ delay: 0.4 }}
                 className="text-lg lg:text-xl text-gray-600 leading-relaxed mb-8 max-w-lg"
               >
-                Chauffy vous connecte instantanément à un réseau de chauffeurs vérifiés. 
+                Suivit+ vous connecte instantanément à un réseau de chauffeurs vérifiés. 
                 Simple, rapide et sécurisé.
               </motion.p>
 
@@ -477,7 +477,7 @@ export default function ServicesPage() {
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500 rounded-[3rem] blur-3xl opacity-30 scale-110" />
                 <img
                   src="/phones-mockup.png"
-                  alt="Application Chauffy"
+                  alt="Application Suivit+"
                   className="relative w-80 lg:w-96 h-auto drop-shadow-2xl"
                 />
               </div>
@@ -910,7 +910,7 @@ export default function ServicesPage() {
               transition={{ delay: 0.2 }}
               className="text-lg lg:text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
             >
-              Rejoignez Chauffy aujourd'hui et découvrez une nouvelle façon de vous déplacer.
+              Rejoignez Suivit+ aujourd'hui et découvrez une nouvelle façon de vous déplacer.
             </motion.p>
 
             <motion.div

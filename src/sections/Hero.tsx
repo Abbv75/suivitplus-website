@@ -315,6 +315,18 @@ export function HeroSection() {
               </motion.div>
             </motion.div>
 
+            {/* Test Credentials Info */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.6, duration: 0.5 }}
+              className="text-xs text-slate-400 mt-4 text-center lg:text-left"
+            >
+              <span className="inline-block bg-teal-500/10 border border-teal-500/20 rounded px-2 py-1">
+                Identifiants de test : Login <strong className="text-teal-300">user223</strong> / Mdp <strong className="text-teal-300">user223</strong>
+              </span>
+            </motion.div>
+
             {/* Stats */}
             <div
               ref={statsRef}

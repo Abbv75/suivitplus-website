@@ -66,7 +66,7 @@ export default function PoliticsPage() {
       icon: FileText,
       title: "1. Politique de Confidentialité",
       content: [
-        "Chez Chauffy, nous accordons une importance capitale à la protection de vos données personnelles. Cette politique de confidentialité décrit comment nous collectons, utilisons et protégeons les informations que vous nous fournissez lors de l'utilisation de notre application de transport.",
+        "Chez Suivit+, nous accordons une importance capitale à la protection de vos données personnelles. Cette politique de confidentialité décrit comment nous collectons, utilisons et protégeons les informations que vous nous fournissez lors de l'utilisation de notre application de transport.",
         "Nous nous engageons à respecter votre vie privée et à nous conformer pleinement aux réglementations en vigueur sur la protection des données personnelles.",
       ],
     },
@@ -97,7 +97,7 @@ export default function PoliticsPage() {
       icon: Lock,
       title: "4. Protection des Données",
       content: [
-        "Chauffy met en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, modification, divulgation ou destruction.",
+        "Suivit+ met en œuvre des mesures de sécurité techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, modification, divulgation ou destruction.",
         "Toutes les données sont chiffrées lors de leur transmission et nous limitons l'accès à vos informations uniquement aux employés et partenaires qui en ont besoin pour fournir nos services.",
       ],
     },
@@ -122,7 +122,7 @@ export default function PoliticsPage() {
       icon: CreditCard,
       title: "7. Tarification et Services",
       content: [
-        "Chauffy propose plusieurs types de services avec une tarification transparente :",
+        "Suivit+ propose plusieurs types de services avec une tarification transparente :",
         "• Point à Point (OT1) : Facturé à la distance parcourue (200 F CFA / km).",
         "• Services Horaires (OT2 & OT3) : Facturés à la durée (base de 3 000 F CFA / heure).",
         "• Forfaits Événementiels (OT4) : Forfait de 4h à 8 000 F CFA (Jour) / 11 000 F CFA (Nuit).",
@@ -154,18 +154,18 @@ export default function PoliticsPage() {
       icon: FileSignature,
       title: "10. Conditions d'Utilisation",
       content: [
-        "En utilisant l'application ou le site web Chauffy, vous acceptez nos conditions d'utilisation. Vous vous engagez à :",
+        "En utilisant l'application ou le site web Suivit+, vous acceptez nos conditions d'utilisation. Vous vous engagez à :",
         "• Fournir des informations véridiques lors de votre inscription.",
         "• Utiliser le service conformément aux lois et réglementations en vigueur.",
-        "• Respecter les chauffeurs et le personnel de Chauffy.",
+        "• Respecter les chauffeurs et le personnel de Suivit+.",
       ],
     },
     {
       icon: AlertTriangle,
       title: "11. Limitation de Responsabilité",
       content: [
-        "Chauffy s'efforce d'assurer l'exactitude des informations mais ne peut garantir l'absence totale d'erreurs techniques ou d'imprécisions sur les estimations de temps de trajet.",
-        "Chauffy décline toute responsabilité pour toute interruption de service indépendante de sa volonté.",
+        "Suivit+ s'efforce d'assurer l'exactitude des informations mais ne peut garantir l'absence totale d'erreurs techniques ou d'imprécisions sur les estimations de temps de trajet.",
+        "Suivit+ décline toute responsabilité pour toute interruption de service indépendante de sa volonté.",
       ],
     },
     {
@@ -173,7 +173,7 @@ export default function PoliticsPage() {
       title: "12. Nous Contacter",
       content: [
         "Pour toute question concernant cette politique de confidentialité ou l'utilisation de vos données personnelles, vous pouvez nous contacter :",
-        "• Par e-mail : privacy@chauffy.com",
+        "• Par e-mail : privacy@suivit+.com",
         "• Par téléphone : +223 20 00 00 00",
         "• Par courrier : Bamako, Mali",
       ],
@@ -207,7 +207,7 @@ export default function PoliticsPage() {
             transition={{ delay: 0.1 }}
             className="text-lg text-gray-600 max-w-2xl mx-auto"
           >
-            Découvrez comment Chauffy protège vos données personnelles et garantit votre sécurité lors de l'utilisation de nos services.
+            Découvrez comment Suivit+ protège vos données personnelles et garantit votre sécurité lors de l'utilisation de nos services.
           </motion.p>
         </div>
       </section>

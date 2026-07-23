@@ -52,7 +52,7 @@ const BenefitsSectionMinimal = () => {
           </h2>
           
           <p className="text-gray-500 text-base lg:text-lg max-w-2xl">
-            Que vous soyez passager ou chauffeur, chauffy s'adapte à vos besoins 
+            Que vous soyez passager ou chauffeur, suivit+ s'adapte à vos besoins 
             pour une expérience de mobilité exceptionnelle.
           </p>
         </motion.div>
@@ -239,7 +239,7 @@ const BenefitsSectionMinimal = () => {
                     },
                     { 
                       icon: BadgeCheck, 
-                      text: "Certification Chauffy", 
+                      text: "Certification Suivit+", 
                       desc: "Un badge de confiance qui rassure vos clients",
                       color: "from-orange-500 to-amber-500"
                     },

@@ -9,7 +9,7 @@ const testimonials = [
   {
     name: "Aminata Diallo",
     role: "Entrepreneure",
-    text: "Après mes longues journées de travail, Chauffy me ramène chez moi dans ma propre voiture. Je ne pourrais plus m'en passer !",
+    text: "Après mes longues journées de travail, Suivit+ me ramène chez moi dans ma propre voiture. Je ne pourrais plus m'en passer !",
     rating: 5,
   },
   {
@@ -21,7 +21,7 @@ const testimonials = [
   {
     name: "Fatoumata Traoré",
     role: "Consultante",
-    text: "Le service est impeccable. Les chauffeurs sont ponctuels, respectueux et conduisent bien. Bravo Chauffy !",
+    text: "Le service est impeccable. Les chauffeurs sont ponctuels, respectueux et conduisent bien. Bravo Suivit+ !",
     rating: 5,
   },
 ];

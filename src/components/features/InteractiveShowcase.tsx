@@ -45,7 +45,7 @@ const InteractiveShowcase = () => {
                             Expérience Immersive
                         </Badge>
                         <h2 className="text-4xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-none">
-                            L'app Chauffy <br />
+                            L'app Suivit+ <br />
                             <span className="text-slate-400">entre vos mains.</span>
                         </h2>
                     </motion.div>
@@ -87,7 +87,7 @@ const InteractiveShowcase = () => {
                                 <ShieldCheck className="text-orange-500" size={28} />
                                 <div>
                                     <p className="text-xs font-bold uppercase tracking-widest opacity-60">Sécurité</p>
-                                    <p className="text-sm font-medium">Trajet certifié Chauffy</p>
+                                    <p className="text-sm font-medium">Trajet certifié Suivit+</p>
                                 </div>
                             </CardContent>
                         </Card>
